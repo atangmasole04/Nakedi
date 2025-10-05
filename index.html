@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Love Contract 💙</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0a1a2f, #000);
+      color: #f0f8ff;
+      overflow-x: hidden;
+      text-align: center;
+    }
+    h1 { font-size: 2.8em; margin-top: 1em; animation: fadeIn 2s ease-in-out; }
+    p { font-size: 1.1em; margin: 10px auto; width: 85%; line-height: 1.5em; }
+    .reasons { margin-top: 2em; text-align: left; width: 70%; margin-left: auto; margin-right: auto; background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(255,255,255,0.1); animation: fadeIn 3s ease; }
+    .reasons li { margin: 10px 0; font-size: 1.1em; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .btn { background: linear-gradient(135deg, #1e90ff, #00bfff); color: white; border: none; padding: 15px 30px; border-radius: 30px; font-size: 1.2em; cursor: pointer; transition: 0.3s; margin: 1.5em; }
+    .btn:hover { transform: scale(1.05); box-shadow: 0 0 15px #00bfff; }
+    .contract-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; justify-content: center; align-items: center; z-index: 1000; visibility: hidden; opacity: 0; transition: visibility 0s, opacity 0.4s ease; }
+    .contract-overlay.show { visibility: visible; opacity: 1; }
+    .contract { background: #111827; border: 2px solid #00bfff; color: #f0f8ff; padding: 30px; border-radius: 15px; width: 80%; max-width: 600px; text-align: left; max-height: 70vh; overflow-y: auto; box-shadow: 0 0 20px rgba(0,191,255,0.3); font-size: 1em; }
+    .contract h2 { text-align: center; color: #00bfff; margin-bottom: 10px; }
+    .signature-btn { display: block; margin: 20px auto; background: #00bfff; color: white; border: none; padding: 12px 25px; border-radius: 25px; font-size: 1em; cursor: pointer; transition: 0.3s; }
+    .signature-btn:hover { background: #1e90ff; transform: scale(1.05); }
+    .flowers { position: fixed; bottom: -50px; left: 50%; transform: translateX(-50%); font-size: 2em; opacity: 0; }
+    .final-message { font-size: 2em; margin-top: 2em; color: #00bfff; text-shadow: 0 0 15px #1e90ff; animation: fadeIn 2s ease-in-out; }
+    .confetti-piece { position: fixed; width: 10px; height: 10px; background-color: #ffdd00; top: 0; opacity: 0; animation: confettiFall 4s linear forwards; z-index: 2000; }
+    @keyframes confettiFall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+  </style>
+</head>
+<body>
+  <h1>Will You Be My Girlfriend, Andrei Nakedi? 💙</h1>
+  <p>I, Atang Masole, have created this special page just for you to express my heart and love.</p>
+  <p>Before you decide, here are 10 reasons why I want you to be mine:</p>
+
+  <ul class="reasons">
+    <li>1. You’ve got that rare kind of energy that makes everything feel lighter when you’re around.</li>
+    <li>2. You challenge me in the best way — you make me want to level up.</li>
+    <li>3. Your vibe is real. No pretending, no front — just authenticity.</li>
+    <li>4. You actually listen, not just to reply, but to understand.</li>
+    <li>5. The way you carry yourself — calm, confident, and effortless — it’s magnetic.</li>
+    <li>6. Talking to you never feels forced; it just flows like we’ve known each other forever.</li>
+    <li>7. You bring peace, not chaos — and that’s rare.</li>
+    <li>8. You’re ambitious, but you still know how to slow down and appreciate small moments.</li>
+    <li>9. Even in silence, your presence feels enough.</li>
+    <li>10. You make me want to be someone worth your time — and that says everything.</li>
+  </ul>
+
+  <button class="btn" onclick="showContract()">Read Our Love Contract 💌</button>
+
+  <div class="contract-overlay" id="contractOverlay">
+    <div class="contract">
+      <h2>Love Contract 💙</h2>
+      <p>Before we officially begin our journey together, this contract is a promise of love, respect, and joy. It’s a guide to our shared happiness and the boundaries that will keep our hearts safe. By clicking “Yes,” you agree to enter this journey with me, embracing both the promises and the do nots below.</p>
+      <p>❤️ Do’s (What We Promise)</p>
+      <ul>
+        <li>We promise to always listen to each other, not just hear each other.</li>
+        <li>We promise to support each other’s dreams and celebrate every win together.</li>
+        <li>We promise to be honest, even when it’s hard, because our trust matters.</li>
+        <li>We promise to make time for each other, even when life gets busy.</li>
+        <li>We promise to keep our love fun and alive, with laughter, surprises, and small gestures.</li>
+      </ul>
+      <p>💔 Do Nots (What We Will Never Do)</p>
+      <ul>
+        <li>We will never hide things from each other or lie, no matter what.</li>
+        <li>We will never take each other for granted — we choose each other every day.</li>
+        <li>We will never disrespect each other, in public or private.</li>
+        <li>We will never let pride get in the way of making things right between us.</li>
+        <li>We will never stop putting effort into our love, even when things feel routine.</li>
+      </ul>
+      <form id="loveForm" onsubmit="return handleAnswer(event)">
+        <button class="signature-btn" name="answer" value="Yes" type="submit">Yes, I Agree 💍</button>
+        <button class="signature-btn" name="answer" value="No" type="submit">No 😢</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="flowers" id="flowers">💐🌹🌼🌸🌷🌻🌺</div>
+  <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9b2a1b4d6c.mp3?filename=romantic-piano-ambient-11024.mp3" loop></audio>
+
+  <div class="final-message" id="finalMessage"></div>
+
+  <script>
+    const overlay = document.getElementById('contractOverlay');
+    const flowers = document.getElementById('flowers');
+    const music = document.getElementById('bgMusic');
+    const finalMessage = document.getElementById('finalMessage');
+
+    function showContract() {
+      overlay.classList.add('show');
+      music.play();
+    }
+
+    function handleAnswer(event) {
+      event.preventDefault();
+      const answer = event.submitter.value;
+      overlay.classList.remove('show');
+      if(answer === 'Yes') {
+        finalMessage.textContent = '💙 Andrei Nakedi said YES! Welcome to our forever 💙';
+        flowers.style.opacity = '1';
+        flowers.style.animation = 'bloom 5s ease forwards';
+        createConfetti();
+      } else {
+        finalMessage.textContent = '😢 Andrei Nakedi said NO. I respect your heart and thank you for reading ❤️';
+      }
+
+      fetch('https://formspree.io/f/mblzkapw', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ answer: answer })
+      });
+    }
+
+    function createConfetti() {
+      for(let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti-piece';
+        confetti.style.left = Math.random() * window.innerWidth + 'px';
+        confetti.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+        document.body.appendChild(confetti);
+        setTimeout(() => { confetti.remove(); }, 4000);
+      }
+    }
+  </script>
+</body>
+</html>
